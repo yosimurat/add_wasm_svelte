@@ -1,5 +1,5 @@
 {
-	"name": "add-wasm-svelte",
+	"name": "@yosimurat/add_wasm_svelte",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",
@@ -32,6 +32,7 @@
 		"@sveltejs/package": "^2.0.0",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
+		"@yosimurat/add_wasm": "^0.0.1",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
@@ -46,5 +47,13 @@
 	},
 	"svelte": "./dist/index.js",
 	"types": "./dist/index.d.ts",
-	"type": "module"
+	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/yosimurat/add_wasm_svelte"
+	},
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com"
+	},
+	"license": "MIT"
 }
