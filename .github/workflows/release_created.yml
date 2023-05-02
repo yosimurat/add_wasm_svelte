@@ -18,21 +18,20 @@ jobs:
         node-version: '16.x'
         registry-url: 'https://npm.pkg.github.com'
 
-    # - name: Generate token
-    #   id: generate_token
-    #   uses: tibdex/github-app-token@v1
-    #   with:
-    #     app_id: ${{ secrets.APP_ID }}
-    #     permissions: >-
-    #       {"packages": "read"}
-    #     repository: yosimurat/add_wasm
-    #     private_key: ${{ secrets.PRIVATE_KEY }}
+    - name: Generate token
+      id: generate_token
+      uses: tibdex/github-app-token@v1
+      with:
+        app_id: ${{ secrets.APP_ID }}
+        permissions: >-
+          {"packages": "read"}
+        repository: yosimurat/add_wasm
+        private_key: ${{ secrets.PRIVATE_KEY }}
 
     - name: Build npm package
       run: npm ci && npm run build
       env:
-        NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # NPM_TOKEN: ${{ steps.generate_token.outputs.token }}
+        NPM_TOKEN: ${{ steps.generate_token.outputs.token }}
     - name: Publish npm package
       run: npm publish
       env:
